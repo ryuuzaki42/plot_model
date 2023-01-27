@@ -1,5 +1,66 @@
 ## plot_model
 
+------------------
+#### ryuuzaki42 info - start
+
+### Tested in Google Collab
+#### Mount the /content/drive
+```sh
+from google.colab import drive
+drive.mount('/content/drive')
+```
+
+### Install tensorflow 2.6.4
+```sh
+!pip install tensorflow==2.6.4
+import tensorflow as tf
+print(tf.__version__)
+```
+
+### Install pydotplus
+```sh
+pip install pydotplus
+```
+
+### Install graphviz
+```sh
+pip install graphviz
+```
+
+### Clone plot_model
+```sh
+!git clone https://github.com/ryuuzaki42/plot_model
+```
+
+### Load/Exec file
+```sh
+execfile("/content/plot_model/plot_model/plot_model.py")
+```
+
+### Make the plot
+```sh
+plot_model(model)
+
+# Default
+#plot_model(model, to_file='model.png', show_shapes=True, show_layer_names=False, rankdir='TB', expand_nested=False, style=0, color=True, dpi=96)
+
+# My use
+#plot_model(model, to_file = file_name, show_shapes=False, show_layer_names=False, rankdir='TB', expand_nested=False, style=0, color=True, dpi=96)
+```
+
+## Alternative
+```sh
+from keras.utils.vis_utils import plot_model
+
+tf.keras.utils.plot_model(
+  model, to_file='model.png', show_shapes=True, show_dtype=False,
+  show_layer_names=False, rankdir='TB', expand_nested=False, dpi=96
+)
+```
+
+#### ryuuzaki42 info - end
+------------------
+
 After some changing of code, now should be able to run with tensorflow 2.6.4, for other using package information, you can see in My environments.txt
 , my project can using the following package and success to run the plot_mode.
 
@@ -22,8 +83,6 @@ You may also consider installing the following :
 pip install pydotplus
 pip install graphviz
 ```
-- !!!!! Finally,download and install [graphviz](https://graphviz.gitlab.io/download/) to plot model graphs. !!!!!
-- !!!!! Finally,download and install [graphviz](https://graphviz.gitlab.io/download/) to plot model graphs. !!!!!
 - !!!!! Finally,download and install [graphviz](https://graphviz.gitlab.io/download/) to plot model graphs. !!!!!
 
 Then, you can install plot_model itself. There are two ways to install plot_model:
