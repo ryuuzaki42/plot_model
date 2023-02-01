@@ -45,18 +45,36 @@ plot_model(model)
 #plot_model(model, to_file='model.png', show_shapes=True, show_layer_names=False, rankdir='TB', expand_nested=False, style=0, color=True, dpi=96)
 
 # My use
-#plot_model(model, to_file = file_name, show_shapes=False, show_layer_names=False, rankdir='TB', expand_nested=False, style=0, color=True, dpi=96)
+#file_name_s='model_s.png'
+#plot_model(model, to_file=file_name_s, show_shapes=False, show_layer_names=False, rankdir='TB', expand_nested=False, style=0, color=True, dpi=96)
 ```
 
 ## Alternative
 ```sh
 from keras.utils.vis_utils import plot_model
 
-tf.keras.utils.plot_model(
-  model, to_file='model.png', show_shapes=True, show_dtype=False,
-  show_layer_names=False, rankdir='TB', expand_nested=False, dpi=96
-)
+file_name_f='model_f.png'
+
+tf.keras.utils.plot_model(model, to_file=file_name_f, show_shapes=True, show_dtype=False, show_layer_names=False, rankdir='TB', expand_nested=False, dpi=96)
 ```
+
+## Print conv
+```sh
+#print("f\n\n", f, "\n")
+#print(DECODER, "\n")
+
+for i, layer in enumerate(model.layers):
+  #if 'conv' in layer.name:
+  if layer.weights:
+    print("  ", layer.name, end=" ")
+    print(layer.weights[0].shape)
+    #print(layer.weights[1].shape)
+  else:
+    print("       ",layer.name)
+
+  print(i,'-' * 30)
+```
+
 
 #### ryuuzaki42 info - end
 ------------------
