@@ -51,13 +51,26 @@ plot_model(model)
 #plot_model(model, to_file=file_name_s, show_shapes=False, show_layer_names=False, rankdir='TB', expand_nested=False, style=0, color=True, dpi=96)
 ```
 
+### Args:
+    model: A Keras model instance
+    to_file: File name of the plot image.
+    show_shapes: whether to display shape information.
+    show_dtype: whether to display layer dtypes.
+    show_layer_names: whether to display layer names.
+    rankdir: `rankdir` argument passed to PyDot,
+        a string specifying the format of the plot:
+        'TB' creates a vertical plot;
+        'LR' creates a horizontal plot.
+    expand_nested: Whether to expand nested models into clusters.
+    dpi: Dots per inch.
+
 ## Original plot
 ```sh
 import tensorflow as tf
 from keras.utils.vis_utils import plot_model
 
-num_file = "12"
-file_name_f = "model_" + num_f + "_f.png"
+num_file = "01"
+file_name_f = "model_" + num_file + "_f.png"
 
 tf.keras.utils.plot_model(model, to_file=file_name_f, show_shapes=True, show_dtype=False, show_layer_names=False, rankdir='TB', expand_nested=False, dpi=96)
 ```
@@ -78,7 +91,6 @@ for i, layer in enumerate(model.layers):
 
   print(i,'-' * 30)
 ```
-
 
 #### ryuuzaki42 info - end
 ------------------
